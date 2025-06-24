@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="./favicon.ico"/>
 <style>
     a:link {
-        color: #333333; /* Blue */
+        color: #6065fe; /* Blue */
     }
     a:hover {
       color: #3366CC; /* Lighter blue or a different color */
@@ -18,7 +18,7 @@
         color: #800080; /* Purple or dark blue */
     }
     a:visited {
-        color: #333333; /* Dark green or a different color */
+        color: #DFDFDF; /* Dark green or a different color */
     }
     body {
         font-family: 'Roboto', sans-serif; /* Body text */
@@ -26,11 +26,12 @@
     h1, h2, h3 {
         font-family: 'Playfair Display', sans-serif; /* Headings */
         font-weight: 320;
+        color: #DFDFDF;
     }
 
 
 
-    p { font-size: 18px }
+    p { font-size: 18px; color: #DFDFDF; }
     /* Add some basic styling to the tabs */
     ul.tabs {
         list-style-type: none;
@@ -98,7 +99,7 @@
     }
     b {
         font-weight: 380; /* Lighter than the default bold */
-        font-size: 18px;
+        font-size: 20px;
         color: #4285F4;
         /* color: #6674bb; */
     }
@@ -128,6 +129,7 @@
         position: absolute;
         left: 0; /* Position custom marker at the start */
         font-weight: bold; /* Make the marker bold */
+        color: #b5b5b5;
     }
 </style>
 <link rel="stylesheet" href="./style.css" type="text/css" />
@@ -136,7 +138,7 @@
 
 
 <!-- <body style="background-color:#FAF5D5;"> -->
-<body style="background-color:#FAF5D5;">
+<body style="background-color:#1c1c1d;">
 
     <!-- <ul class="tabs">
         <li class="tab" onclick="showTab('tab1')">Home</li>
@@ -154,18 +156,18 @@
     <hr> -->
 
     <div id="tab1" class="tab-content active-tab">
-        <table  align="center" style="width: 62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#FAF5D5">
+        <table  align="center" style="width: 62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#1c1c1d">
             <tr>
                 <td>
                     <div style="display: flex; align-items: center;">
                         <h1 style="margin-right: 10px;">Dr. Hongjie Chen</h1>
-                        <h3 style="margin: 10px;"><a href="https://www.linkedin.com/in/hongjie-chen-a25b6319b/">(LinkedIn)</a></h3>
-                        <h3 style="margin: 0;"><a href="https://scholar.google.com/citations?user=LNgkGo4AAAAJ&hl=en">(Google Scholar)</a></h3>
+                        <h3 style="margin: 10px;"><a href="https://www.linkedin.com/in/hongjie-chen-a25b6319b/">LinkedIn</a></h3>
+                        <h3 style="margin: 0;"><a href="https://scholar.google.com/citations?user=LNgkGo4AAAAJ&hl=en">Google Scholar</a></h3>
                     </div>
                     
                     <p style="line-height: 1.5;">
 <!--I am a Researcher at Dolby Labs. My current research centers on graph, time series, audio, and representation learning, all within the domain of AI. I also have research experience in recommendation systems and data analytics<br>-->
-I am a Researcher at Dolby Labs. My current research centers on graph, time series, audio.<br>
+I am a Researcher at Dolby Labs. My current research centers on graph, time series, audio, and representation learning, all within the domain of AI.<br>
                     </p>
 
                 </td>
@@ -198,21 +200,13 @@ I am a Researcher at Dolby Labs. My current research centers on graph, time seri
             <!--</tr>-->
 
             <div>
-                <table  align="center" width="62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#FAF5D5">
+                <table  align="center" width="62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#1c1c1d">
 
                     <tr>
                         <td colspan=2>
                             <h1>Publications</h1>
                             <h2>Journals</h2>
                             <ul>
-                                <li data-marker="J3">
-                                    <p><b>Edges Matter: An Analysis of Graph Time-Series Representations for Temporal Networks</b>
-                                        <a href = "https://ieeexplore.ieee.org/document/11029199" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, N. K. Ahmed, N. Park, Y. Wang, T. Derr, H. Eldardiry<br>
-                                        <i>2025 IEEE Transactions on Network Science and Engineering (TNSE)</i><br>
-                                    </p>
-                                </li>
                                 <li data-marker="J2">
                                     <p><b>Graph Time-series Modeling in Deep Learning: A Survey</b>
                                         <a href = "https://dl.acm.org/doi/10.1145/3638534" target="_blank">[ACM]</a>
@@ -330,50 +324,6 @@ I am a Researcher at Dolby Labs. My current research centers on graph, time seri
                     </tr>
                 </table>
             </div>
-            <table  align="center" width="62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#FAF5D5">
-                <tr>
-                    <td colspan="2">
-                        <h1>Experiences</h1>
-                        <h2>Research</h2>
-                        <ul>
-                            <!--<li><p><b>2019-2024 - Doctoral Study</b>, Computer Science at Virginia Tech</p></li>-->
-                            <li><p><b>2024 - Virginia Tech</b>, Doctoral degree from Computer Science at Virginia Tech</p></li>
-                            <li><p><b>2023 - Yahoo! Research Intern</b>, Research on large-scale graphs and graph classification with Dr. Meizhu Liu </p></li>
-                            <li><p><b>2020 - Adobe Research Intern</b>, Research on graphs and time-series with Dr. Kanak Mahadik and Dr. Ryan Rossi</p></li>
-                            <!--<li><p><b>2023 - Yahoo! Research Intern</b>&nbsp;&nbsp;&nbsp;&nbsp; Advised by <a href="https://research.yahoo.com/researchers/meizhu" class="mylink">Dr. Liu</a></p></li>-->
-                            <!--<li><p><b>2020 - Adobe Research Intern</b>&nbsp;&nbsp;&nbsp;&nbsp; Co-advised by <a href="https://sites.google.com/view/kanak-mahadik/home" class="mylink">Dr.&nbsp;Mahadik</a> and <a href="http://ryanrossi.com/" class="mylink">Dr.&nbsp;Rossi</a></p>-->
-                        </ul>
-                        <!--<h2>Presentations</h2>-->
-                        <!--<ul>-->
-                            <!--<li><p><b>2023 - Presenter</b>, Present a poster in ML Day: Amazon - VT Initiative for Efficient and Robust Machine Learning</p></li>-->
-                        <!--</ul>-->
-                        <h2>Services</h2>
-                        <ul>
-                            <li><p><b>Reviewer</b>, CIKM (2023), ICASSP (2025), IJCNN (2025), KDD (2025, 2024), NeurIPS (2025), TKDE (2025)
-                            <li><p><b>Advisor</b>, Master@VT (2024)
-                            <li><p><b>Mentor</b>, 4 Master@Umass Amherst (2025), Master@VT (2025, 2023), 3 Undergraduate@VT(2022)
-                            <!--<li><p><b>2024 - Adviser</b>, Serve on the advisory committee for a Master's student</p></li>-->
-                            <!--<li><p><b>2024 - Reviewer</b>, Serve to review papers for KDD, ICASSP, Journal of Supercomputing</p></li>-->
-                            <!--<li><p><b>2023 - Reviewer</b>, Serve to review papers for CIKM</p></li>-->
-                            <!--<li><p><b>2023 - Mentor</b>, Mentor a graduate student</p></li>-->
-                            <!--<li><p><b>2023 - Panelist</b>, Serve as a panelist for TechGirls camp</p></li>-->
-                            <!--<li><p><b>2023 - Presenter</b>, Present a poster in ML Day: Amazon - VT Initiative for Efficient and Robust Machine Learning</p></li>-->
-                            <!--<li><p><b>2022 - Mentor</b>, Mentor three undergraduate students</p></li>-->
-                        </ul>
-                        <h2>Teaching</h2>
-                        <ul>
-                            <li><p><b>Teaching Assistant</b>, <i>CS4824 Introduction to Machine Learning</i> (2024S), <i>CS5704 Software Engineering</i> (2023F), <i>CS4824 Introduction to Machine Learning</i> (2022S), <i>CS4604 Introduction to Data Base Management Systems</i> (2021F), <i>CS4104 Data and Algorithm Analysis</i> (2021S), <i>CS4824 Introduction to Machine Learning</i> (2020F), <i>CS4804 Introduction to Artificial Intelligence</i> (2020S)
-                            <!--<li><p><b>2024 - Teaching Assistant</b>, Assist for an undergraduate senior class <i>CS4824 Introduction to Machine Learning</i></p></li>-->
-                            <li><p><b>Instructor</b>, Instruct <i>CS4824 Introduction to Machine Learning</i> (2022 Summer)
-                            <li><p><b>Guest lecturer</b>, 2x <i>CS5806 Machine Learning II</i> (2023F), <i>CS6804 Multisource Machine Learning</i> (2022F), <i>CS4984 Machine Learning Capstone</i> (2020F)
-                            <!--<li><p><b>2023 - Guest lecturer</b>, Give two lectures for a graduate-level class <i>CS5806 Machine Learning II</i></p></li>-->
-                            <!--<li><p><b>2023 - Guest speaker</b>, Give a talk for an undergraduate-level class <i>CS3604 Professionalism in Computing</i></p></li>-->
-                            <!--<li><p><b>2022 - Guest lecturer</b>, Give a lecture for a graduate-level class </p></li>-->
-                            <!--<li><p><b>2020 - Guest lecturer</b>, Give a lecture for an undergraduate senior class </p></li>-->
-                        </ul>
-                    </td>
-                </tr>
-            </table>
 
         </table>
         <div style="min-height: 100%; display: flex; flex-direction: column;">
