@@ -1,510 +1,127 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dt">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="icon" type="image/png" href="./favicon.ico"/>
-<style>
-    a:link {
-        color: #6065fe; /* Blue */
-    }
-    a:hover {
-      color: #3366CC; /* Lighter blue or a different color */
-    }
-    a:active {
-        color: #800080; /* Purple or dark blue */
-    }
-    a:visited {
-        color: #DFDFDF; /* Dark green or a different color */
-    }
+  <meta charset="UTF-8">
+  <title>Hongjie Chen</title>
+  <style>
     body {
-        font-family: 'Roboto', sans-serif; /* Body text */
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      line-height: 1.6;
+      background-color: #f0f7f4; /* softer background */
+      color: #222;
     }
-    h1, h2, h3 {
-        font-family: 'Playfair Display', sans-serif; /* Headings */
-        font-weight: 320;
-        color: #DFDFDF;
+    .intro-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
     }
+    <!--.intro-container img {-->
+      <!--width: 200px; /* zoom in */-->
+      <!--border-radius: 50%;-->
+      <!--margin-right: 50px;-->
+    <!--}-->
+    .intro-container img {
+        width: 200px; /* keep the size */
+        height: 200px; /* make it square for circular crop */
+        border-radius: 50%;
+        margin-right: 50px;
 
-
-
-    p { font-size: 18px; color: #DFDFDF; }
-    /* Add some basic styling to the tabs */
-    ul.tabs {
-        list-style-type: none;
-        margin: 0 auto;
-        padding: 0;
-        display: flex;
-        width: 62%; /* Make tabs span the width */
+        object-fit: cover;       /* zoom in / crop */
+        object-position: center 40%; /* focus on upper part of image */
     }
-
-    ul.tabs li {
-        flex: 1; /* Distribute the width evenly among tabs */
-        margin-right: 10px;
-        padding: 10px 10px;
-        background-color: #d1e5f7;
-        color: #333333;
-        cursor: pointer;
-        border-radius: 5px;
-        text-align: center; /* Center-align text */
-        font-size: 20px;
+    .intro-text {
+      flex: 1;
     }
-
-    ul.tabs li:hover {
-        background-color: #ffffb3;
+    h2 {
+      margin-top: 30px;
+      font-size: 1.2em;
+      text-align: left;
     }
-
-    /* Style for the content associated with each tab */
-    .tab-content {
-        display: none;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
     }
-
-    /* Show the selected tab content */
-    .active-tab {
-        display: block;
+    li {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
     }
-
-    /* Dropdown styles */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f3ac;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
+    li i {
+      flex-shrink: 0;
+      margin-left: 10px;
+      text-align: right;
+      color: #444;
     }
-
-    .tabs li:hover .dropdown-content {
-        display: block;
+    a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #3366cc;
     }
-
-    .dropdown-item {
-        padding: 8px 16px;
-        text-decoration: none;
-        display: block;
-        color: #333;
-    }
-
-    .dropdown-item:not(:last-child) {
-        border-bottom: 1px solid #ccc; /* Separator bar */
-    }
-    .dropdown-item:hover {
-        background-color: #d2d2d2;
-    }
-
-    hr {
-        width: 62%;
-    }
-    b {
-        font-weight: 380; /* Lighter than the default bold */
-        font-size: 20px;
-        color: #4285F4;
-        /* color: #6674bb; */
+    .links {
+      margin: 20px 0;
+      text-align: center;
     }
     footer {
-      text-align: center; /* Center-align the text within the footer */
-      padding: 10px; /* Example padding for the footer */
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
     }
-
-    #mapHitCounter {
-        width: 15%;
-        margin: auto;
-    }
-
-
-    ul {
-        list-style-type: none; /* Remove the default bullet points */
-        padding-left: 0; /* Remove padding to align with custom marker */
-    }
-
-    li {
-        position: relative;
-        padding-left: 25px; /* Add space for the custom marker */
-    }
-
-    li::before {
-        content: attr(data-marker); /* Use the data-marker attribute for custom content */
-        position: absolute;
-        left: 0; /* Position custom marker at the start */
-        font-weight: bold; /* Make the marker bold */
-        color: #b5b5b5;
-    }
-</style>
-<link rel="stylesheet" href="./style.css" type="text/css" />
-<title>Dr. Hongjie Chen</title>
+  </style>
 </head>
-
-
-<!-- <body style="background-color:#FAF5D5;"> -->
-<body style="background-color:#1c1c1d;">
-
-    <!-- <ul class="tabs">
-        <li class="tab" onclick="showTab('tab1')">Home</li>
-        <li class="tab" onclick="showTab('tab2')">Publications</li>
-        <li class="tab" onclick="showTab('tab3')">Experiences</li>
-        <li class="tab" ><a href="https://scholar.google.com/citations?hl=en&user=XDKPKf4AAAAJ&inst=13410158990364976897">Google Scholar</a></li>
-        <li class="tab dropdown" onmouseover="setDropdownWidth(this)">
-            Links
-            <div class="dropdown-content">
-                <a class="dropdown-item" href="https://people.cs.vt.edu/~jeffchan/teaching/CS4824/index.html">Courses</a>
-                <a class="dropdown-item" href="https://scholar.google.com/citations?hl=en&user=XDKPKf4AAAAJ&inst=13410158990364976897">Google Scholar</a>
-                <a class="dropdown-item" href="./CV_2024May10.pdf">CV</a>
-            </div>
-        </li>
-    <hr> -->
-
-    <div id="tab1" class="tab-content active-tab">
-        <table  align="center" style="width: 62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#1c1c1d">
-            <tr>
-                <td>
-                    <div style="display: flex; align-items: center;">
-                        <h1 style="margin-right: 10px;">Dr. Hongjie Chen</h1>
-                        <h3 style="margin: 10px;"><a href="https://www.linkedin.com/in/hongjie-chen-a25b6319b/">LinkedIn</a></h3>
-                        <h3 style="margin: 0;"><a href="https://scholar.google.com/citations?user=LNgkGo4AAAAJ&hl=en">Google Scholar</a></h3>
-                    </div>
-                    
-                    <p style="line-height: 1.5;">
-<!--I am a Researcher at Dolby Labs. My current research centers on graph, time series, audio, and representation learning, all within the domain of AI. I also have research experience in recommendation systems and data analytics<br>-->
-I am a Researcher at Dolby Labs. My current research centers on graph, time series, audio.<br>
-                    </p>
-
-                </td>
-                <td align="margin-right">
-                    <img src="./self.png" width="250" title="Photographed in National Air and Space Museum in Virginia, 2023" style="padding-left: 40px"></img>
-                </td>
-            </tr>
-            <!--<tr>-->
-                <!--<td colspan="2">-->
-                    <!--<p>-->
-                        <!--<i>*I expect to graduate in 2024, and I am looking forward to pursuing a career in academia after graduation.</i>-->
-                    <!--</p>-->
-                <!--</td>-->
-            <!--</tr>-->
-
-            <!--<tr>-->
-                <!--<td colspan="2">-->
-                    <!--<p style="line-height: 1.5;">-->
-                        <!--Department of Computer Science, Virginia Tech, Blacksburg, Virginia, USA-->
-                        <!--<br>-->
-                        <!--Email: <i>jeffchan(@)vt.edu</i>-->
-                        <!--<a href="https://scholar.google.com/citations?hl=en&user=XDKPKf4AAAAJ&inst=13410158990364976897">Google scholar</a><br>-->
-                        <!--<br><font size="+2"><br>-->
-                            <!--<a href="https://drive.google.com/file/d/1WHJfKmJok679C26DTmSmc1_J7oVSpQBD/view?usp=sharing" class="mylink">Resume</a>-->
-                            <!--&nbsp; &nbsp; &nbsp; &nbsp;-->
-                            <!--<a href="https://people.cs.vt.edu/~jeffchan/teaching/CS4824/index.html" class="mylink">Teaching</a>-->
-                    <!--</p>-->
-                <!--</td>-->
-
-            <!--</tr>-->
-
-            <div>
-                <table  align="center" width="62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#1c1c1d">
-
-                    <tr>
-                        <td colspan=2>
-                            <h1>Publications</h1>
-                            <h2>Journals</h2>
-                            <ul>
-                                <li data-marker="J3">
-                                    <p><b>Edges Matter: An Analysis of Graph Time-Series Representations for Temporal Networks</b>
-                                        <a href = "https://ieeexplore.ieee.org/document/11029199" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, N. K. Ahmed, N. Park, Y. Wang, T. Derr, H. Eldardiry<br>
-                                        <i>2025 IEEE Transactions on Network Science and Engineering (TNSE)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="J2">
-                                    <p><b>Graph Time-series Modeling in Deep Learning: A Survey</b>
-                                        <a href = "https://dl.acm.org/doi/10.1145/3638534" target="_blank">[ACM]</a>
-                                        <br>
-                                        H. Chen, H. Eldardiry<br>
-                                        <i>2024 ACM Transactions on Knowledge Discovery from Data (TKDD)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="J1">
-                                    <p><b>Graph Deep Factors for Probabilistic Time-series Forecasting</b>
-                                        <!--<a href = "https://dl.acm.org/doi/10.1145/3543511" target="_blank">[ACM portal]</a>-->
-                                        <a href = "https://dl.acm.org/doi/10.1145/3543511" target="_blank">[ACM]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry<br>
-                                        <i>2023 ACM Transactions on Knowledge Discovery from Data (TKDD)</i><br>
-                                    </p>
-                                </li>
-                            </ul>
-                            <h2>Conferences</h2> 
-                            <ul>
-
-                                <li data-marker="C9">
-                                    <p><b>Probabilistic Hypergraph Recurrent Neural Networks for Time-series Forecasting</b>
-                                        <a href = "http://dl.acm.org/doi/abs/10.1145/3690624.3709202" target="_blank">[ACM]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry
-                                        <br>
-                                        <i>2025 Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining (KDD)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C8">
-                                    <p><b>A Quantitative Metric Selection Approach for Time-series Forecasting Foundation Models</b>
-                                        <a href = "https://ieeexplore.ieee.org/abstract/document/10887984" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, A. Mehra, J. Kimball, S. Kim
-                                        <br>
-                                        <i>2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C7">
-                                    <p><b>LIVE-ITS: LSH-based Interactive Visualization Explorer for Large-Scale Incomplete Time Series</b>
-                                        <a href = "https://ieeexplore.ieee.org/abstract/document/10825096" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, A. D. Beachnau, P. Thomas, P. Maneriker, J. Kimball, R. A. Rossi
-                                        <br>
-                                        <i>2024 IEEE International Conference on Big Data (IEEE BigData)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C6">
-                                    <p><b>A Study of Foundation Models for Large-scale Time-series Forecasting</b>
-                                        <a href = "https://ieeexplore.ieee.org/abstract/document/10825153" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry
-                                        <br>
-                                        <i>2024 IEEE International Conference on Big Data (IEEE BigData)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C5">
-                                    <p><b>Evolving Super Graph Neural Networks for Large-scale Time-Series Forecasting</b>
-                                        <a href = "https://link.springer.com/chapter/10.1007/978-981-97-2266-2_16" target="_blank">[Springer]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry
-                                        <br>
-                                        <i>2024 ACM The Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C4">
-                                    <p><b>Hypergraph Neural Networks for Time-series Forecasting</b>
-                                        <a href = "https://ieeexplore.ieee.org/document/10386109" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry
-                                        <br>
-                                        <i>2023 IEEE International Conference on Big Data (IEEE BigData)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C3">
-                                    <p><b>Context Integrated Relational Spatio-Temporal Resource Forecasting</b>
-                                        <!--<a href = "https://ieeexplore.ieee.org/document/9671705" target="_blank">[IEEE portal]</a>-->
-                                        <a href = "https://ieeexplore.ieee.org/document/9671705" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, K. Mahadik, H. Eldardiry
-                                        <br>
-                                        <i>2021 IEEE International Conference on Big Data (IEEE BigData)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C2">
-                                    <p><b>Graph Deep Factors for Forecasting with Applications to Cloud Resource Allocation</b>
-                                        <!--<a href = "https://dl.acm.org/doi/abs/10.1145/3447548.3467357" target="_blank">[ACM portal]</a>-->
-                                        <a href = "https://dl.acm.org/doi/abs/10.1145/3447548.3467357" target="_blank">[ACM]</a>
-                                        <br>
-                                        H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry<br>
-                                        <i>2021 Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining (KDD)</i><br>
-                                    </p>
-                                </li>
-                                <li data-marker="C1">
-                                    <p><b>LncRNA-disease association prediction based on neighborhood information aggregation in neural network</b>
-                                        <!--<a href = "https://ieeexplore.ieee.org/document/8621441" target="_blank">[IEEE portal]</a>-->
-                                        <a href = "https://ieeexplore.ieee.org/document/8621441" target="_blank">[IEEE]</a>
-                                        <br>
-                                        H. Chen, X. Wang, X. Zhang, X. Zeng, T. Song, A. Rodríguez-Patón <br>
-                                        <i>2018 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i><br>
-                                    </p>
-                                </li>
-                            </ul>
-                            <h2>Patents & Copyrights</h2>
-                            <ul>
-                                <li data-marker="P1">
-                                    <p><b>US patent -  Deep Hybrid Graph-Based Forecasting Systems</b>
-                                    </p>
-                                </li>
-                                <li data-marker="R1">
-                                    <p><b>China software copyright - Continuous Weighing of Living Aquatic Creatures</b></p></li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-        </table>
-        <div style="min-height: 100%; display: flex; flex-direction: column;">
-            <footer>
-                <!--<div id="mapHitCounter">-->
-                    <!--<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=861f41&w=a&t=m&d=nnlhFCjOcGtciokjag996aKdYS4ki2aBgHRqMFe2C9Q&co=faf3d2&cmo=75787b&cmn=e5751f&ct=861f41'></script>-->
-                <!--</div>-->
-                <!-- <p> -->
-                    <!-- <p style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; padding: 10px;"> -->
-
-                    <p>&copy; Hongjie Chen (hojiechen at gmail.com) | Last Updated: <span id="updateDate"></span></p>
-            </footer>
-        </div>
+<body>
+  <div class="intro-container">
+    <img src="self.png" alt="Hongjie Chen photo">
+    <div class="intro-text">
+      <p>Hello, I am <b>Dr. Hongjie Chen</b>, a Researcher at Dolby Labs.<br>
+      My work centers on graph, time series, and audio.</p>
     </div>
+  </div>
 
-    <div id="tab2" class="tab-content">
-        <table  align="center" width="62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#FAF5D5">
-            <tr>
-                <td colspan=2>
-                    <h2>Journals</h2>
-                    <ul>
-                        <li>
-                            <p><b>Graph Time-series Modeling in Deep Learning: A Survey</b>
-                                <a href = "https://dl.acm.org/doi/10.1145/3638534" target="_blank">[ACM]</a>
-                                <br>
-                                H. Chen, H. Eldardiry<br>
-                                <i>2024 ACM Transactions on Knowledge Discovery from Data (TKDD)</i><br>
-                            </p>
-                        </li>
-                        <li>
-                            <p><b>Graph Deep Factors for Probabilistic Time-series Forecasting</b>
-                                <!--<a href = "https://dl.acm.org/doi/10.1145/3543511" target="_blank">[ACM portal]</a>-->
-                                <a href = "https://dl.acm.org/doi/10.1145/3543511" target="_blank">[ACM]</a>
-                                <br>
-                                H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry<br>
-                                <i>2023 ACM Transactions on Knowledge Discovery from Data (TKDD)</i><br>
-                            </p>
-                        </li>
-                    </ul>
-                    <h2>Conferences</h2> 
-                    <ul>
-                        <li>
-                            <p><b>Evolving Super Graph Neural Networks for Large-scale Time-Series Forecasting</b>
-                                <a href = "https://link.springer.com/chapter/10.1007/978-981-97-2266-2_16" target="_blank">[Springer]</a>
-                                <br>
-                                H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry
-                                <br>
-                                <i>2024 ACM The Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)</i><br>
-                            </p>
-                        </li>
-                        <li>
-                            <p><b>Hypergraph Neural Networks for Time-series Forecasting</b>
-                                <a href = "https://ieeexplore.ieee.org/document/10386109" target="_blank">[IEEE]</a>
-                                <br>
-                                H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry
-                                <br>
-                                <i>2023 IEEE International Conference on Big Data (IEEE BigData)</i><br>
-                            </p>
-                        </li>
-                        <li>
-                            <p><b>Context Integrated Relational Spatio-Temporal Resource Forecasting</b>
-                                <!--<a href = "https://ieeexplore.ieee.org/document/9671705" target="_blank">[IEEE portal]</a>-->
-                                <a href = "https://ieeexplore.ieee.org/document/9671705" target="_blank">[IEEE]</a>
-                                <br>
-                                H. Chen, R. A. Rossi, K. Mahadik, H. Eldardiry
-                                <br>
-                                <i>2021 IEEE International Conference on Big Data (IEEE BigData)</i><br>
-                            </p>
-                        </li>
-                        <li>
-                            <p><b>Graph Deep Factors for Forecasting with Applications to Cloud Resource Allocation</b>
-                                <!--<a href = "https://dl.acm.org/doi/abs/10.1145/3447548.3467357" target="_blank">[ACM portal]</a>-->
-                                <a href = "https://dl.acm.org/doi/abs/10.1145/3447548.3467357" target="_blank">[ACM]</a>
-                                <br>
-                                H. Chen, R. A. Rossi, K. Mahadik, S. Kim, H. Eldardiry<br>
-                                <i>2021 Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining (KDD)</i><br>
-                            </p>
-                        </li>
-                        <li>
-                            <p><b>LncRNA-disease association prediction based on neighborhood information aggregation in neural network</b>
-                                <!--<a href = "https://ieeexplore.ieee.org/document/8621441" target="_blank">[IEEE portal]</a>-->
-                                <a href = "https://ieeexplore.ieee.org/document/8621441" target="_blank">[IEEE]</a>
-                                <br>
-                                H. Chen, X. Wang, X. Zhang, X. Zeng, T. Song, A. Rodríguez-Patón <br>
-                                <i>2018 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i><br>
-                            </p>
-                        </li>
-                    </ul>
-                    <h2>Patents & Copyrights</h2>
-                    <ul>
-                        <li>
-                            <p><b>US patent -  Deep Hybrid Graph-Based Forecasting Systems</b>
-                            </p>
-                        </li>
-                        <li><p><b>China software copyright - Continuous Weighing of Living Aquatic Creatures</b></p></li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
-    </div>
+  <div class="links">
+    <a href="https://scholar.google.com/citations?user=LNgkGo4AAAAJ&hl=en" target="_blank">Google Scholar</a> | 
+    <a href="https://www.linkedin.com/in/hongjie-chen-a25b6319b/" target="_blank">LinkedIn</a>
+  </div>
 
-    <div id="tab3" class="tab-content">
-        <table  align="center" width="62%; max-width: 1080px;" border="0" cellpadding="0" bgcolor="#FAF5D5">
-            <tr>
-                <td colspan="2">
-                    <h2>Research</h2>
-                    <ul>
-                        <li><p><b>2023 - Yahoo! Research Intern</b>, Research on the topic of large-scale graphs and graph classification under the supervision of Dr. Meizhu Liu </p></li>
-                        <li><p><b>2020 - Adobe Research Intern</b>, Research on the topic of graphs and time-series under the supervision of Dr. Kanak Mahadik and Dr. Ryan Rossi</p></li>
-                        <!--<li><p><b>2023 - Yahoo! Research Intern</b>&nbsp;&nbsp;&nbsp;&nbsp; Advised by <a href="https://research.yahoo.com/researchers/meizhu" class="mylink">Dr. Liu</a></p></li>-->
-                        <!--<li><p><b>2020 - Adobe Research Intern</b>&nbsp;&nbsp;&nbsp;&nbsp; Co-advised by <a href="https://sites.google.com/view/kanak-mahadik/home" class="mylink">Dr.&nbsp;Mahadik</a> and <a href="http://ryanrossi.com/" class="mylink">Dr.&nbsp;Rossi</a></p>-->
-                    </ul>
-                    <!--<h2>Presentations</h2>-->
-                    <!--<ul>-->
-                        <!--<li><p><b>2023 - Presenter</b>, Present a poster in ML Day: Amazon - VT Initiative for Efficient and Robust Machine Learning</p></li>-->
-                    <!--</ul>-->
-                    <h2>Services</h2>
-                    <ul>
-                        <li><p><b>2024 - Reviewer</b>, Serve to review papers for KDD, ICASSP, Journal of Supercomputing</p></li>
-                        <li><p><b>2023 - Reviewer</b>, Serve to review papers for CIKM</p></li>
-                        <li><p><b>2023 - Mentor</b>, Mentor a graduate student</p></li>
-                        <li><p><b>2023 - Panelist</b>, Serve as a panelist for TechGirls camp</p></li>
-                        <li><p><b>2023 - Presenter</b>, Present a poster in ML Day: Amazon - VT Initiative for Efficient and Robust Machine Learning</p></li>
-                        <li><p><b>2022 - Mentor</b>, Mentor three undergraduate students</p></li>
-                    </ul>
-                    <h2>Teaching</h2>
-                    <ul>
-                        <li><p><b>2024 - Teaching Assistant</b>, Assist for an undergraduate senior class <i>CS4824 Introduction to Machine Learning</i></p></li>
-                        <li><p><b>2023 - Guest speaker</b>, Give a talk for an undergraduate-level class <i>CS3604 Professionalism in Computing</i></p></li>
-                        <li><p><b>2023 - Guest lecturer</b>, Give two lectures for a graduate-level class <i>CS5806 Machine Learning II</i></p></li>
-                        <li><p><b>2023 - Teaching Assistant</b>, Assist for a graduate-level class <i>CS5704 Software Engineering</i></p></li>
-                        <li><p><b>2022 - Instructor</b>, Instruct an undergraduate senior class <i>CS4824 Introduction to Machine Learning</i></p></li>
-                        <li><p><b>2022 - Guest lecturer</b>, Give a lecture for a graduate-level class <i>CS6804 Multisource Machine Learning</i></p></li>
-                        <li><p><b>2022 - Teaching Assistant</b>, Assist for an undergraduate senior class <i>CS4824 Introduction to Machine Learning</i></p></li>
-                        <li><p><b>2021 - Teaching Assistant</b>, Assist for an undergraduate senior class <i>CS4604 Introduction to Data Base Management Systems</i></p></li>
-                        <li><p><b>2021 - Teaching Assistant</b>, Assist for an undergraduate senior class <i>CS4104 Data and Algorithm Analysis</i></p></li>
-                        <li><p><b>2020 - Guest lecturer</b>, Give a lecture for an undergraduate senior class <i>CS4984 Machine Learning Capstone</i></p></li>
-                        <li><p><b>2020 - Teaching Assistant</b>, Assist for an undergraduate senior class <i>CS4824 Introduction to Machine Learning</i></p></li>
-                        <li><p><b>2020 - Teaching Assistant</b>, Assist for an undergraduate senior class <i>CS4804 Introduction to Artificial Intelligence</i></p></li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
+  <h2>Journal Publications</h2>
+  <ul>
+    <li><span><a href="https://ieeexplore.ieee.org/document/11029199" target="_blank">Edges Matter: An Analysis of Graph Time-Series Representations for Temporal Networks</a></span> <i>IEEE TNSE 2025</i></li>
+    <li><span><a href="https://dl.acm.org/doi/10.1145/3638534" target="_blank">Graph Time-series Modeling in Deep Learning: A Survey</a></span> <i>ACM TKDD 2024</i></li>
+    <li><span><a href="https://dl.acm.org/doi/10.1145/3543511" target="_blank">Graph Deep Factors for Probabilistic Time-series Forecasting</a></span> <i>ACM TKDD 2023</i></li>
+  </ul>
 
+  <h2>Conference Publications</h2>
+  <ul>
+    <li><span><a href="http://dl.acm.org/doi/abs/10.1145/3690624.3709202" target="_blank">Probabilistic Hypergraph Recurrent Neural Networks for Time-series Forecasting</a></span> <i>KDD 2025</i></li>
+    <li><span><a href="https://ieeexplore.ieee.org/abstract/document/10887984" target="_blank">A Quantitative Metric Selection Approach for Time-series Forecasting Foundation Models</a></span> <i>ICASSP 2025</i></li>
+    <li><span><a href="https://ieeexplore.ieee.org/abstract/document/10825096" target="_blank">LIVE-ITS: LSH-based Interactive Visualization Explorer for Large-Scale Incomplete Time Series</a></span> <i>IEEE BigData 2024</i></li>
+    <li><span><a href="https://ieeexplore.ieee.org/abstract/document/10825153" target="_blank">A Study of Foundation Models for Large-scale Time-series Forecasting</a></span> <i>IEEE BigData 2024</i></li>
+    <li><span><a href="https://link.springer.com/chapter/10.1007/978-981-97-2266-2_16" target="_blank">Evolving Super Graph Neural Networks for Large-scale Time-Series Forecasting</a></span> <i>PAKDD 2024</i></li>
+    <li><span><a href="https://ieeexplore.ieee.org/document/10386109" target="_blank">Hypergraph Neural Networks for Time-series Forecasting</a></span> <i>IEEE BigData 2023</i></li>
+    <li><span><a href="https://ieeexplore.ieee.org/document/9671705" target="_blank">Context Integrated Relational Spatio-Temporal Resource Forecasting</a></span> <i>IEEE BigData 2021</i></li>
+    <li><span><a href="https://dl.acm.org/doi/abs/10.1145/3447548.3467357" target="_blank">Graph Deep Factors for Forecasting with Applications to Cloud Resource Allocation</a></span> <i>KDD 2021</i></li>
+    <li><span><a href="https://ieeexplore.ieee.org/document/8621441" target="_blank">LncRNA-disease association prediction based on neighborhood information aggregation in neural network</a></span> <i>BIBM 2018</i></li>
+  </ul>
 
-    </div>
+  <h2>Patents & Copyrights</h2>
+  <ul>
+    <li><span>US Patent – Deep Hybrid Graph-Based Forecasting Systems.</span></li>
+    <li><span>China Software Copyright – Continuous Weighing of Living Aquatic Creatures.</span></li>
+  </ul>
 
-    <script>
-        function showTab(tabId) {
-            // Hide all tab content
-            var tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(function(content) {
-                content.style.display = 'none';
-            });
+  <footer>
+    © Hongjie Chen | hojiechen(at)gmail.com<br>
+    <span id="last-updated"></span>
+  </footer>
 
-
-            // Show the selected tab content
-            document.getElementById(tabId).style.display = 'block';
-
-        }
-
-        function setDropdownWidth(tab) {
-            var dropdownContent = tab.querySelector('.dropdown-content');
-            dropdownContent.style.width = tab.offsetWidth + 'px';
-        }
-
-        // JavaScript to display the last updated date (date only) in the footer
-        const updateDateElement = document.getElementById("updateDate");
-        const lastModified = new Date(document.lastModified);
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = lastModified.toLocaleDateString(undefined, options);
-        updateDateElement.textContent = formattedDate;
-    </script>
+  <script>
+    // Auto insert last update date
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("last-updated").textContent =
+      "Last updated: " + new Date(document.lastModified).toLocaleDateString(undefined, options);
+  </script>
 </body>
 </html>
-
