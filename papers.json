@@ -1,6 +1,12 @@
 {
   "preprints": [
     {
+      "title": "Variable-Length Audio Fingerprinting",
+      "venue": "arXiv",
+      "year": "2026",
+      "url": "https://arxiv.org/abs/2603.23947"
+    },
+    {
       "title": "Measuring Time-Series Dataset Similarity using Wasserstein Distance",
       "venue": "arXiv",
       "year": "2025",
