@@ -2,133 +2,437 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <title>Dr. Hongjie Chen</title>
+  <title>Hongjie Chen</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      line-height: 1.6;
-      background-color: #f0f7f4; /* softer background */
-      color: #222;
-      font-size: 1.1rem;
+    :root {
+      --bg-primary: #fefdfb;
+      --bg-secondary: #fff9f0;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666;
+      --accent: #2563eb;
+      --border: #e5dcc8;
     }
-    .intro-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .intro-container img {
-        width: 200px; /* keep the size */
-        height: 200px; /* make it square for circular crop */
-        border-radius: 50%;
-        margin-right: 50px;
 
-        object-fit: cover;       /* zoom in / crop */
-        object-position: center 40%; /* focus on upper part of image */
+    body.dark-mode {
+      --bg-primary: #0f0e0c;
+      --bg-secondary: #1a1815;
+      --text-primary: #f5f5f5;
+      --text-secondary: #bbb;
+      --accent: #60a5fa;
+      --border: #3a3530;
     }
-    .intro-text {
-      flex: 1;
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-    h2 {
-      margin-top: 30px;
-      font-size: 1.2em;
-      text-align: left;
-    }
-    ul {
-      list-style-type: none;
+
+    * {
+      margin: 0;
       padding: 0;
-      text-align: left;
+      box-sizing: border-box;
     }
-    li {
-      margin-bottom: 10px;
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Header */
+    .header {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
     }
-    li i {
+
+    .profile {
+      display: flex;
+      gap: 2.5rem;
+      flex: 1;
+    }
+
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 40%;
       flex-shrink: 0;
-      margin-left: 10px;
-      text-align: right;
-      color: #444;
+      background-color: var(--bg-secondary);
     }
-    a {
-      margin: 0 10px;
+
+    .profile-info h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-info p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .profile-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-links a {
+      color: var(--accent);
       text-decoration: none;
-      color: #3366cc;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
     }
-    .links {
-      margin: 20px 0;
-      text-align: center;
+
+    .profile-links a:hover {
+      opacity: 0.7;
     }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      font-size: 1.2rem;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--bg-secondary);
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+    }
+
+    .papers-list {
+      list-style: none;
+    }
+
+    .paper-item {
+      margin-bottom: 1.2rem;
+      padding: 1rem 1.2rem;
+      background-color: var(--bg-secondary);
+      border-radius: 6px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .paper-item:hover {
+      background-color: var(--border);
+    }
+
+    .paper-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .paper-title a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .paper-title a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .paper-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .paper-venue {
+      font-style: italic;
+    }
+
+    .paper-year {
+      background-color: var(--bg-primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    .loading {
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .error {
+      color: #dc2626;
+      background-color: var(--bg-secondary);
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 3px solid #dc2626;
+    }
+
     footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #666;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
       text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .sync-info {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      .header {
+        flex-direction: column;
+      }
+
+      .theme-toggle {
+        margin-top: 1rem;
+      }
+
+      .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-info h1 {
+        font-size: 1.5rem;
+      }
+
+      .profile-links {
+        justify-content: center;
+      }
+
+      .paper-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .paper-meta {
+        width: 100%;
+        white-space: normal;
+        gap: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="intro-container">
-    <img src="self.png" alt="Hongjie Chen photo">
-    <div class="intro-text">
-      <p>I am <b>Dr. Hongjie Chen</b>, a Researcher at Dolby Labs.<br>
-      My work centers on graph, time series, and audio.</p>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="profile">
+        <img src="self.png" alt="Hongjie Chen" class="profile-image">
+        <div class="profile-info">
+          <h1>Hongjie Chen</h1>
+          <p>Researcher at Dolby Labs</p>
+          <p style="font-size: 0.95rem; color: var(--text-secondary);">
+            Exploring topics in graph, time series, audio, data system, and deep learning.
+          </p>
+          <div class="profile-links">
+            <a href="https://scholar.google.com/citations?user=LNgkGo4AAAAJ&hl=en" target="_blank">
+              Scholar
+            </a>
+            <a href="https://www.linkedin.com/in/hongjie-chen-a25b6319b/" target="_blank">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+        <span id="themeIcon">🌙</span>
+      </button>
     </div>
+
+    <!-- Preprints -->
+    <section class="section" id="preprints-section">
+      <h2 class="section-title">Preprints</h2>
+      <ul class="papers-list" id="preprints-list">
+        <li class="loading">Loading papers...</li>
+      </ul>
+    </section>
+
+    <!-- Journal Publications -->
+    <section class="section" id="journal-section">
+      <h2 class="section-title">Journal Publications</h2>
+      <ul class="papers-list" id="journal-list">
+        <li class="loading">Loading papers...</li>
+      </ul>
+    </section>
+
+    <!-- Conference Publications -->
+    <section class="section" id="conference-section">
+      <h2 class="section-title">Conference Publications</h2>
+      <ul class="papers-list" id="conference-list">
+        <li class="loading">Loading papers...</li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="sync-info" id="sync-info">Last updated: —</div>
+    </footer>
   </div>
-
-  <div class="links">
-    <a href="https://scholar.google.com/citations?user=LNgkGo4AAAAJ&hl=en" target="_blank">Google Scholar</a> | 
-    <a href="https://www.linkedin.com/in/hongjie-chen-a25b6319b/" target="_blank">LinkedIn</a>
-  </div>
-
-  <h2>Preprints</h2>
-  <ul>
-      <li><span><a href="https://www.arxiv.org/abs/2507.22189" target="_blank">Measuring Time-Series Dataset Similarity using Wasserstein Distance</a></span></li>
-  </ul>
-
-  <h2>Journal Publications</h2>
-  <ul>
-    <li><span><a href="https://ieeexplore.ieee.org/document/11029199" target="_blank">Edges Matter: An Analysis of Graph Time-Series Representations for Temporal Networks</a></span> <i>IEEE TNSE 2025</i></li>
-    <li><span><a href="https://dl.acm.org/doi/10.1145/3638534" target="_blank">Graph Time-series Modeling in Deep Learning: A Survey</a></span> <i>ACM TKDD 2024</i></li>
-    <li><span><a href="https://dl.acm.org/doi/10.1145/3543511" target="_blank">Graph Deep Factors for Probabilistic Time-series Forecasting</a></span> <i>ACM TKDD 2023</i></li>
-  </ul>
-
-  <h2>Conference Publications</h2>
-  <ul>
-    <li><span><a href="http://dl.acm.org/doi/abs/10.1145/3690624.3709202" target="_blank">Probabilistic Hypergraph Recurrent Neural Networks for Time-series Forecasting</a></span> <i>KDD 2025</i></li>
-    <li><span><a href="https://ieeexplore.ieee.org/abstract/document/10887984" target="_blank">A Quantitative Metric Selection Approach for Time-series Forecasting Foundation Models</a></span> <i>ICASSP 2025</i></li>
-    <li><span><a href="https://ieeexplore.ieee.org/abstract/document/10825096" target="_blank">LIVE-ITS: LSH-based Interactive Visualization Explorer for Large-Scale Incomplete Time Series</a></span> <i>IEEE BigData 2024</i></li>
-    <li><span><a href="https://ieeexplore.ieee.org/abstract/document/10825153" target="_blank">A Study of Foundation Models for Large-scale Time-series Forecasting</a></span> <i>IEEE BigData 2024</i></li>
-    <li><span><a href="https://link.springer.com/chapter/10.1007/978-981-97-2266-2_16" target="_blank">Evolving Super Graph Neural Networks for Large-scale Time-Series Forecasting</a></span> <i>PAKDD 2024</i></li>
-    <li><span><a href="https://ieeexplore.ieee.org/document/10386109" target="_blank">Hypergraph Neural Networks for Time-series Forecasting</a></span> <i>IEEE BigData 2023</i></li>
-    <li><span><a href="https://ieeexplore.ieee.org/document/9671705" target="_blank">Context Integrated Relational Spatio-Temporal Resource Forecasting</a></span> <i>IEEE BigData 2021</i></li>
-    <li><span><a href="https://dl.acm.org/doi/abs/10.1145/3447548.3467357" target="_blank">Graph Deep Factors for Forecasting with Applications to Cloud Resource Allocation</a></span> <i>KDD 2021</i></li>
-    <li><span><a href="https://ieeexplore.ieee.org/document/8621441" target="_blank">LncRNA-disease association prediction based on neighborhood information aggregation in neural network</a></span> <i>BIBM 2018</i></li>
-  </ul>
-
-  <h2>Patents & Copyrights</h2>
-  <ul>
-    <li><span>US Patent – Deep Hybrid Graph-Based Forecasting Systems.</span></li>
-    <li><span>China Software Copyright – Continuous Weighing of Living Aquatic Creatures.</span></li>
-  </ul>
-
-  <footer>
-    © Hongjie Chen | hojiechen(at)gmail.com<br>
-    <span id="last-updated"></span>
-  </footer>
 
   <script>
-    // Auto insert last update date
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("last-updated").textContent =
-      "Last updated: " + new Date(document.lastModified).toLocaleDateString(undefined, options);
+    // Dark mode toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    
+    // Load theme preference
+    const prefersDark = localStorage.getItem('theme') === 'dark' ||
+      (!localStorage.getItem('theme') && 
+       window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    if (prefersDark) {
+      document.body.classList.add('dark-mode');
+      themeIcon.textContent = '☀️';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      themeIcon.textContent = isDark ? '☀️' : '🌙';
+    });
+
+    // Load papers from JSON
+    async function loadPapers() {
+      try {
+        const response = await fetch('papers.json');
+        if (!response.ok) throw new Error('Failed to load papers');
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error loading papers:', error);
+        return { preprints: [], articles: [], inproceedings: [], lastUpdated: null };
+      }
+    }
+
+    function createPaperElement(paper) {
+      const li = document.createElement('li');
+      li.className = 'paper-item';
+      
+      const titleEl = document.createElement('div');
+      titleEl.className = 'paper-title';
+      const titleLink = document.createElement('a');
+      titleLink.href = paper.url;
+      titleLink.target = '_blank';
+      titleLink.textContent = paper.title;
+      titleEl.appendChild(titleLink);
+
+      const metaEl = document.createElement('div');
+      metaEl.className = 'paper-meta';
+      
+      const venueEl = document.createElement('div');
+      venueEl.className = 'paper-venue';
+      venueEl.textContent = paper.venue;
+      
+      const yearEl = document.createElement('div');
+      yearEl.className = 'paper-year';
+      yearEl.textContent = paper.year;
+
+      metaEl.appendChild(venueEl);
+      metaEl.appendChild(yearEl);
+
+      li.appendChild(titleEl);
+      li.appendChild(metaEl);
+      return li;
+    }
+
+    async function renderPapers() {
+      const data = await loadPapers();
+      
+      // Render preprints
+      const preprintsList = document.getElementById('preprints-list');
+      if (data.preprints && data.preprints.length > 0) {
+        preprintsList.innerHTML = '';
+        data.preprints.forEach(paper => {
+          preprintsList.appendChild(createPaperElement(paper));
+        });
+      } else {
+        preprintsList.innerHTML = '<li class="error">No preprints found</li>';
+      }
+
+      // Render journal publications
+      const journalList = document.getElementById('journal-list');
+      if (data.articles && data.articles.length > 0) {
+        journalList.innerHTML = '';
+        data.articles.forEach(paper => {
+          journalList.appendChild(createPaperElement(paper));
+        });
+      } else {
+        journalList.innerHTML = '<li class="error">No journal publications found</li>';
+      }
+
+      // Render conference publications
+      const conferenceList = document.getElementById('conference-list');
+      if (data.inproceedings && data.inproceedings.length > 0) {
+        conferenceList.innerHTML = '';
+        data.inproceedings.forEach(paper => {
+          conferenceList.appendChild(createPaperElement(paper));
+        });
+      } else {
+        conferenceList.innerHTML = '<li class="error">No conference publications found</li>';
+      }
+
+      // Update sync info
+      if (data.lastUpdated) {
+        const date = new Date(data.lastUpdated);
+        document.getElementById('sync-info').textContent = 
+          `Last updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+      }
+    }
+
+    // Load papers on page load
+    renderPapers();
   </script>
 </body>
 </html>

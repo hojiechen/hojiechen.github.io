@@ -1,0 +1,87 @@
+{
+  "preprints": [
+    {
+      "title": "Measuring Time-Series Dataset Similarity using Wasserstein Distance",
+      "venue": "arXiv",
+      "year": "2025",
+      "url": "https://www.arxiv.org/abs/2507.22189"
+    }
+  ],
+  "articles": [
+    {
+      "title": "Edges Matter: An Analysis of Graph Time-Series Representations for Temporal Networks",
+      "venue": "IEEE TNSE",
+      "year": "2025",
+      "url": "https://ieeexplore.ieee.org/document/11029199"
+    },
+    {
+      "title": "Graph Time-series Modeling in Deep Learning: A Survey",
+      "venue": "ACM TKDD",
+      "year": "2024",
+      "url": "https://dl.acm.org/doi/10.1145/3638534"
+    },
+    {
+      "title": "Graph Deep Factors for Probabilistic Time-series Forecasting",
+      "venue": "ACM TKDD",
+      "year": "2023",
+      "url": "https://dl.acm.org/doi/10.1145/3543511"
+    }
+  ],
+  "inproceedings": [
+    {
+      "title": "Probabilistic Hypergraph Recurrent Neural Networks for Time-series Forecasting",
+      "venue": "KDD",
+      "year": "2025",
+      "url": "http://dl.acm.org/doi/abs/10.1145/3690624.3709202"
+    },
+    {
+      "title": "A Quantitative Metric Selection Approach for Time-series Forecasting Foundation Models",
+      "venue": "ICASSP",
+      "year": "2025",
+      "url": "https://ieeexplore.ieee.org/abstract/document/10887984"
+    },
+    {
+      "title": "LIVE-ITS: LSH-based Interactive Visualization Explorer for Large-Scale Incomplete Time Series",
+      "venue": "IEEE BigData",
+      "year": "2024",
+      "url": "https://ieeexplore.ieee.org/abstract/document/10825096"
+    },
+    {
+      "title": "A Study of Foundation Models for Large-scale Time-series Forecasting",
+      "venue": "IEEE BigData",
+      "year": "2024",
+      "url": "https://ieeexplore.ieee.org/abstract/document/10825153"
+    },
+    {
+      "title": "Evolving Super Graph Neural Networks for Large-scale Time-Series Forecasting",
+      "venue": "PAKDD",
+      "year": "2024",
+      "url": "https://link.springer.com/chapter/10.1007/978-981-97-2266-2_16"
+    },
+    {
+      "title": "Hypergraph Neural Networks for Time-series Forecasting",
+      "venue": "IEEE BigData",
+      "year": "2023",
+      "url": "https://ieeexplore.ieee.org/document/10386109"
+    },
+    {
+      "title": "Context Integrated Relational Spatio-Temporal Resource Forecasting",
+      "venue": "IEEE BigData",
+      "year": "2021",
+      "url": "https://ieeexplore.ieee.org/document/9671705"
+    },
+    {
+      "title": "Graph Deep Factors for Forecasting with Applications to Cloud Resource Allocation",
+      "venue": "KDD",
+      "year": "2021",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3447548.3467357"
+    },
+    {
+      "title": "LncRNA-disease association prediction based on neighborhood information aggregation in neural network",
+      "venue": "BIBM",
+      "year": "2018",
+      "url": "https://ieeexplore.ieee.org/document/8621441"
+    }
+  ],
+  "lastUpdated": "2026-03-28T00:00:00Z"
+}
