@@ -316,6 +316,14 @@
       </ul>
     </section>
 
+    <!-- Patent Publications -->
+    <section class="section" id="patent-section">
+      <h2 class="section-title">Patent Publications</h2>
+      <ul class="papers-list" id="patent-list">
+        <li class="loading">Loading papers...</li>
+      </ul>
+    </section>
+
     <footer>
       <div class="sync-info" id="sync-info">Last updated: —</div>
     </footer>
@@ -421,6 +429,17 @@
         });
       } else {
         conferenceList.innerHTML = '<li class="error">No conference publications found</li>';
+      }
+
+      // Render patents (if needed, can be added as a new section)
+      const patentList = document.getElementById('patent-list');
+      if (data.patents && data.patents.length > 0) {
+        patentList.innerHTML = '';
+        data.patents.forEach(paper => {
+          patentList.appendChild(createPaperElement(paper));
+        });
+      } else {
+        patentList.innerHTML = '<li class="error">No patents found</li>';
       }
 
       // Update sync info
