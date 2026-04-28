@@ -1,7 +1,7 @@
 {
   "preprints": [
     {
-      "title": "Variable-Length Audio Fingerprinting",
+      "title": "⭐ Variable-Length Audio Fingerprinting",
       "venue": "arXiv",
       "year": "2026",
       "url": "https://arxiv.org/abs/2603.23947"
@@ -34,6 +34,12 @@
     }
   ],
   "inproceedings": [
+    {
+      "title": "⭐ Auto-MatchCut: An Audio-Visual Retrieval Framework for Seamless Match Cutting",
+      "venue": "ICASSP",
+      "year": "2026",
+      "url": "https://ieeexplore.ieee.org/abstract/document/11460464"
+    },
     {
       "title": "Probabilistic Hypergraph Recurrent Neural Networks for Time-series Forecasting",
       "venue": "KDD",
